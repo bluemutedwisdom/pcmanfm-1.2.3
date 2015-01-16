@@ -61,6 +61,7 @@ static gboolean one_screen = FALSE;
 /* static gboolean new_tab = FALSE; */
 static gint show_pref = -1;
 static gboolean desktop_pref = FALSE;
+static gboolean reconfigure = FALSE;
 static char* set_wallpaper = NULL;
 static char* wallpaper_mode = NULL;
 static gboolean new_win = FALSE;
@@ -83,6 +84,7 @@ static GOptionEntry opt_entries[] =
     { "desktop", '\0', 0, G_OPTION_ARG_NONE, &show_desktop, N_("Launch desktop manager"), NULL },
     { "desktop-off", '\0', 0, G_OPTION_ARG_NONE, &desktop_off, N_("Turn off desktop manager if it's running"), NULL },
     { "desktop-pref", '\0', 0, G_OPTION_ARG_NONE, &desktop_pref, N_("Open desktop preference dialog"), NULL },
+    { "reconfigure", '\0', 0, G_OPTION_ARG_NONE, &reconfigure, N_("Reload desktop config file"), NULL },
     { "one-screen", '\0', 0, G_OPTION_ARG_NONE, &one_screen, N_("Use --desktop option only for one screen"), NULL },
     { "set-wallpaper", 'w', 0, G_OPTION_ARG_FILENAME, &set_wallpaper, N_("Set desktop wallpaper from image FILE"), N_("FILE") },
                     /* don't translate list of modes in description, please */
@@ -364,6 +366,12 @@ gboolean pcmanfm_run(gint screen_num)
         {
             fm_desktop_preference(NULL, desktop);
             desktop_pref = FALSE;
+            return TRUE;
+        }
+        else if(reconfigure)
+        {
+            fm_desktop_reconfigure(NULL, desktop);
+            reconfigure = FALSE;
             return TRUE;
         }
         else if(wallpaper_mode || set_wallpaper)

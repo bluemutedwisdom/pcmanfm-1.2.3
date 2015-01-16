@@ -5650,6 +5650,31 @@ void fm_desktop_preference(GtkAction *act, FmDesktop *desktop)
 }
 
 
+void fm_desktop_reconfigure (GtkAction *act, FmDesktop *desktop)
+{
+    if (desktop == NULL)
+        return;
+        
+    // reload the config file
+	load_config (desktop);  
+	
+	// update the display font
+	PangoFontDescription *font_desc = pango_font_description_from_string(desktop->conf.desktop_font);
+    if(font_desc)
+    {
+        PangoContext* pc = gtk_widget_get_pango_context((GtkWidget*)desktop);
+
+        pango_context_set_font_description(pc, font_desc);
+        pango_layout_context_changed(desktop->pl);
+        gtk_widget_queue_resize(GTK_WIDGET(desktop));
+        pango_font_description_free(font_desc);
+    }
+    
+    // update the desktop background
+	update_background(desktop, 0);
+}
+
+
 /* ---------------------------------------------------------------------
     Interface functions */
 
