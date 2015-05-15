@@ -3227,7 +3227,7 @@ static void on_size_allocate(GtkWidget* w, GtkAllocation* alloc)
         /* bug #3614866: after monitor geometry was changed we need to redraw
            the background invalidating all the cache */
         _clear_bg_cache(self);
-        if(self->conf.wallpaper_mode != FM_WP_COLOR && self->conf.wallpaper_mode != FM_WP_TILE)
+//!!!!        if(self->conf.wallpaper_mode != FM_WP_COLOR && self->conf.wallpaper_mode != FM_WP_TILE)
             update_background(self, -1);
     }
 
