@@ -91,9 +91,8 @@ msgid "Sho_w \"Devices\" folder on the desktop"
 msgstr "_Show \"My Documents\" icon on desktop"
 
 #: ../data/ui/desktop-pref.glade.h:16
-#, fuzzy
 msgid "Show \"_Trash Can\" folder on the desktop"
-msgstr "Show \"_Rubbish Bin\" icon on desktop"
+msgstr "Show \"Waste_basket\" icon on desktop"
 
 #: ../data/ui/desktop-pref.glade.h:17
 #, fuzzy
@@ -205,20 +204,17 @@ msgid "Co_nfirm before deleting files"
 msgstr "Co_nfirm before deleting files"
 
 #: ../data/ui/pref.glade.h:9
-#, fuzzy
 msgid "_Move deleted files to \"trash can\" instead of erasing from disk"
-msgstr "_Move deleted files to \"Rubbish Bin\" instead of erasing from disk"
+msgstr "_Move deleted files to \"Wastebasket\" instead of erasing from disk"
 
 #: ../data/ui/pref.glade.h:10
-#, fuzzy
 msgid "_Erase files on removable media instead of \"trash can\" creation"
-msgstr "_Erase files on removable media instead of \"Rubbish Bin\" creation"
+msgstr "_Erase files on removable media instead of \"Wastebasket\" creation"
 
 # Two Alt key options, Which one?
 #: ../data/ui/pref.glade.h:11
-#, fuzzy
 msgid "Confi_rm before moving files into \"trash can\""
-msgstr "Confi_rm before moving files into \"Rubbish Bi_n\""
+msgstr "Confi_rm before moving files into \"Wastebasket\""
 
 #: ../data/ui/pref.glade.h:12
 msgid "Don't ask options on _launch executable file"
@@ -362,7 +358,7 @@ msgstr "_Desktop"
 
 #: ../data/ui/pref.glade.h:50 ../src/main-win-ui.c:236
 msgid "_Trash Can"
-msgstr "_Rubbish Bin"
+msgstr "Waste_basket"
 
 #: ../data/ui/pref.glade.h:51
 msgid "_Filesystem Root"
@@ -736,7 +732,7 @@ msgstr ""
 
 #: ../src/main-win-ui.c:201
 msgid "Move to _Trash"
-msgstr ""
+msgstr "Move to Waste_basket"
 
 #: ../src/main-win-ui.c:203
 msgid "Copy Pat_h(s)"
@@ -878,7 +874,7 @@ msgstr "Go to parent Folder"
 
 #: ../src/main-win-ui.c:236
 msgid "Open trash can"
-msgstr ""
+msgstr "Open Wastebasket"
 
 #: ../src/main-win-ui.c:237
 msgid "Filesyste_m Root"
