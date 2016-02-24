@@ -67,6 +67,18 @@ static const GtkActionEntry extra_item_menu_actions[]=
 {
     {"Disable", NULL, N_("_Remove from Desktop"), NULL, NULL, G_CALLBACK(on_disable)}
 };
+
+static const char trash_menu_xml[]=
+"<popup>"
+  "<placeholder name='ph3'>"
+  "<menuitem action='EmptyTrash'/>"
+  "</placeholder>"
+"</popup>";
+
+static GtkActionEntry trash_menu_actions[]=
+{
+    {"EmptyTrash", NULL, N_("_Empty Trash Can"), NULL, NULL, G_CALLBACK(on_empty_trash)}
+};
 #endif
 
 /* xml definition for desktop item placement */

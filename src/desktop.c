@@ -145,6 +145,7 @@ static void on_snap_to_grid(GtkAction* act, gpointer user_data);
 
 #if FM_CHECK_VERSION(1, 2, 0)
 static void on_disable(GtkAction* act, gpointer user_data);
+static void on_empty_trash(GtkAction* act, gpointer user_data);
 #endif
 
 /* insert GtkUIManager XML definitions */
@@ -2709,6 +2710,13 @@ static void fm_desktop_update_item_popup(FmFolderView* fv, GtkWindow* window,
         gtk_action_group_add_actions(act_grp, extra_item_menu_actions,
                                      G_N_ELEMENTS(extra_item_menu_actions), fv);
         gtk_ui_manager_add_ui_from_string(ui, extra_item_menu_xml, -1, NULL);
+
+        if (trash_can && trash_can->fi == fi)
+        {
+            gtk_action_group_add_actions(act_grp, trash_menu_actions,
+                                     G_N_ELEMENTS(trash_menu_actions), fv);
+            gtk_ui_manager_add_ui_from_string(ui, trash_menu_xml, -1, NULL);
+        }
         /* some menu items should be never available for extra items */
         act = gtk_action_group_get_action(act_grp, "Cut");
         gtk_action_set_visible(act, FALSE);
@@ -2813,6 +2821,12 @@ static void on_disable(GtkAction* act, gpointer user_data)
     }
     queue_config_save(desktop);
     fm_folder_model_extra_file_remove(desktop->model, item->fi);
+}
+
+static void on_empty_trash(GtkAction* act, gpointer user_data)
+{
+    GtkWindow *window = GTK_WINDOW(user_data);
+    fm_empty_trash(window);
 }
 #endif
 
