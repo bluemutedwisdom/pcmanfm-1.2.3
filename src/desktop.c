@@ -1854,7 +1854,7 @@ static void paint_item(FmDesktop* self, FmDesktopItem* item, cairo_t* cr, GdkRec
         /* the shadow */
         gdk_cairo_set_source_color(cr, &self->conf.desktop_shadow);
         cairo_move_to(cr, text_x + 1, text_y + 1);
-        pango_cairo_show_layout(cr, self->pl);
+        //pango_cairo_show_layout(cr, self->pl);
         gdk_cairo_set_source_color(cr, &self->conf.desktop_fg);
     }
     /* real text */
